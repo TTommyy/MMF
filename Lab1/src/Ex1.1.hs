@@ -6,7 +6,6 @@
 
 
 {-
-
   I.1. Efektywna roczna stopa procentowa wynosi 7%.
    Wyliczyć nominalne stopy procentowe dające takie oprocentowanie
   przy kapitalizacji:
@@ -17,7 +16,6 @@
     – tygodniowej;
     – dziennej;
   • ciągłej.
-
 -}
 
 {-
