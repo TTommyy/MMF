@@ -64,6 +64,11 @@ main = do
 
   putStrLn "Nominal intrest rates:"
   print nominalIntrestRates
+  putStrLn ""
 -- [7.0000052,6.8233967,6.784916,6.77042,6.7660213] --
+
   let nominalIntrestRate_ConTime =  calculate_nominal_intrest_rates_contious_time 0.07
+
+  putStrLn "Nominal intrest rate while continus time is assumed:"
   print nominalIntrestRate_ConTime
+--6.76587
