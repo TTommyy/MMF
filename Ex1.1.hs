@@ -4,6 +4,7 @@
 -- Modele Matematyki Finansowej --
 -- Zestaw I --
 
+
 {-
 
   I.1. Efektywna roczna stopa procentowa wynosi 7%.
@@ -20,11 +21,12 @@
 -}
 
 {-
+  Przypadek dyskretny:
   Przkszatlcenia:
   p - nominalne op
   m - ilosc kapitazlicji w roku
-  wzor na rrso: r = (1 + p/m)^m
-  r + 1 = (1+ p/m)^m
+  wzor na rrso: r = (1 + p/m)^m - 1
+  r + 1 = (1 + p/m)^m
   root(r+1, m) = 1 + p/m
   (root(r+1, m) - 1) * m = p
 
@@ -41,6 +43,17 @@ calculate_nominal_intrest_rates_discret_time r m = ((r + 1) ** (1 / m) - 1) * m 
 numbersOfCapitalizations :: [Float]
 numbersOfCapitalizations = [1, 4, 12, 52, 365]
 
+{- Przypadek ciagly:
+  wzor na rrso: r = (1 + p/m)^m -
+  r + 1 = (1 + p/m)^ m = (1+ 1/(m/p))^m = e ^ p
+  p = ln(r +1)
+-}
+-- | Oblicza nominalna stope procentowa dla czasu dyskretnego
+-- @param r - Efyktywna stopa roczna
+-- @returns p - nominalna stopa procentowa
+calculate_nominal_intrest_rates_contious_time :: Float -> Float
+calculate_nominal_intrest_rates_contious_time r = log(r + 1) * 100
+
 main:: IO ()
 main = do
   putStrLn "Numbers of capitalizations:"
@@ -52,3 +65,5 @@ main = do
   putStrLn "Nominal intrest rates:"
   print nominalIntrestRates
 -- [7.0000052,6.8233967,6.784916,6.77042,6.7660213] --
+  let nominalIntrestRate_ConTime =  calculate_nominal_intrest_rates_contious_time 0.07
+  print nominalIntrestRate_ConTime
